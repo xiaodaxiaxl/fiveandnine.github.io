@@ -306,7 +306,7 @@ h4{
 }
 
  .express{
- 	max-height: 750px;
+ 	max-height: 730px;
  	overflow: hidden;
  }
 /*.pagination{
@@ -323,5 +323,5 @@ h4{
 	font-family: Georgia, serif;
 }
 .right p{
-	font-weight:bold;
+	text-indent:2em
 }
