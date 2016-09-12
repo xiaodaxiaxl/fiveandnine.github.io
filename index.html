@@ -36,7 +36,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="dec"><a href="#jumpbook">阅读</a></li>
-            <li class="dec"><a href="html/monitoring.html">监控系统</a></li>
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">监控系统 <b class="caret">  </b></a>
+            	
+            	<ul class="dropdown-menu">
+	            	<li><a href="html/monitoring.html" class="current">监控系统首页</a></li>
+	            	<li class="divider"></li>
+	                <li><a href="html/atmosphere.html">气象网络</a></li>
+	                <li><a href="html/kantan.html">勘探网络</a></li>
+	            </ul>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">更多 <b class="caret">  </b></a>
               <ul class="dropdown-menu">
@@ -328,7 +337,7 @@
 
 
 	<script src="js/jquery.js"></script>
-  	<script src="js/bootstrap.js"></script>
+  	
   	<script src="js/main.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
