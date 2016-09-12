@@ -309,6 +309,12 @@ h4{
  	max-height: 730px;
  	overflow: hidden;
  }
+.express li{
+  background-color: white;
+ }
+ .express ul{
+  padding: 0px 0px;
+ }
 /*.pagination{
 	max-height: 510px;
 }*/
@@ -324,4 +330,35 @@ h4{
 }
 .right p{
 	text-indent:2em
+}
+
+
+/* 评论框 */
+.contactcontain{
+  margin-left: auto;
+  margin-right: auto;
+
+  font: 12px Georgia, "Times New Roman", Times, serif;
+  color: #888;
+  border-top: 1px solid #525263;
+} 
+.contactcontain h1{
+  text-align:center
+}
+.nameandemail{
+  display: table; /*重点就是这个属性,这个样式会告知浏览器当前元素的宽度,采用最小的宽度.不是默认全宽*/
+    margin: 0 auto;
+}
+.divform{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5px;
+  margin-bottom:5px;
+}
+.control-label {
+  width:100%;
+}
+.divform-s{
+  margin-left: 35%;
+  margin-right: 35%;
 }
