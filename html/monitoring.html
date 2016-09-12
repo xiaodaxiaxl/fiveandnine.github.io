@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>海洋平台监控系统</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--页头导航条-->
+    <div class="header" >
+      <nav class="navbar navbar-inverse " role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">海洋平台监控系统</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">设备运行</a></li>
+              <li><a href="#">设备管理</a></li>
+              <li><a href="#">数据统计</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="搜索设备">
+                </div>
+                <button type="submit" class="btn btn-default hidden">Submit</button>
+              </form>
+              <li><a href="#">未读故障消息 <span class="badge">5</span></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin_one<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">登陆记录</a></li>
+                  <li><a href="#">用户消息</a></li>
+                  <li><a href="#">用户日志</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">注销</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!--左侧目录-->
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">海洋平台监控系统消息报告</a>
+            <a href="#" class="list-group-item">海洋平台整体网络</a>
+            <a href="atmosphere.html" class="list-group-item">海洋平台气象信息</a>
+            <a href="kantan.html" class="list-group-item">海洋平台勘探信息</a>
+            <a href="#" class="list-group-item">海洋平台勘探设备</a>
+            <a href="#" class="list-group-item">海洋平台推进器</a>
+            <a href="#" class="list-group-item">海洋平台日常用电</a>
+          </div>
+        </div>
+        <!--右侧主要内容-->
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>全部消息</h4>
+              <div class="form-group">
+                <!-- <span>全选 <input type="checkbox"/></span> -->
+                <button class="btn btn-success">正常</button>
+                <button class="btn btn-warning">警告</button>
+                <button class="btn btn-danger">故障</button>
+                <ul class="pagination visible-md visible-lg visible-sm" id="page-right">
+                  <li><a href="#">&laquo;</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel-body">
+              <table class="table">
+                <tr>
+                  <th></th>
+                  <th>设备状态</th>
+                  <th>设备信息描述</th>
+                  <th>设备名</th>
+                  <th>创建时间</th>
+                  <th>详情</th>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-success">正常</span></td>
+                  <td><a href="#">设备运行正常</a></td>
+                  <td><a href="#">SET1</a></td>
+                  <td>2016年5月18日 10:52</td>
+                  <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse1" class="collapse">
+                  <td colspan="10">
+                    SET1正常运行。电网频率正常，电压正常。
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-success">正常</span></td>
+                  <td><a href="#">设备运行正常</a></td>
+                  <td><a href="#">SET2</a></td>
+                  <td>2016年5月18日 10:52</td>
+                  <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse2" class="collapse">
+                  <td colspan="10">
+                   SET2正常运行。电网频率正常，电压正常。
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-warning">警告</span></td>
+                  <td><a href="#">设备低功率下运行</a></td>
+                  <td><a href="#">SET3</a></td>
+                  <td>2016年5月18日 10:52</td>
+                  <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse3" class="collapse">
+                  <td colspan="10">
+                  SET3低功率下运行。电网频率正常，电压正常。
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-danger">故障</span></td>
+                  <td><a href="#">设备超负荷运行中</a></td>
+                  <td><a href="#">SET4</a></td>
+                  <td>2016年5月18日 10:52</td>
+                 <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse4" class="collapse">
+                  <td colspan="10">
+                  SET4超负荷运行。电网频率正常，电压正常。
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-success">正常</span></td>
+                  <td><a href="#">设备正常运行</a></td>
+                  <td><a href="#">SET5</a></td>
+                  <td>2016年5月18日 10:52</td>
+                  <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse5" class="collapse">
+                  <td colspan="10">
+                  SET5正常运行。电网频率正常，电压正常。
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-success">正常</span></td>
+                  <td><a href="#">设备待机中</a></td>
+                  <td><a href="#">SET6</a></td>
+                  <td>2016年5月18日 10:52</td>
+                  <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse6" class="collapse">
+                  <td colspan="10">
+                  SET6正常待机。电网频率正常，电压正常。
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-success">正常</span></td>
+                  <td><a href="#">运行正常</a></td>
+                  <td><a href="#">Thruster</a></td>
+                  <td>2016年5月18日 10:52</td>
+                  <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse7" class="collapse">
+                  <td colspan="10">
+                  各推进器运行正常，海洋平台运行稳定。
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"/></td>
+                  <td><span class="label label-success">正常</span></td>
+                  <td><a href="#">钻井设备关闭</a></td>
+                  <td><a href="#">drilling machine</a></td>
+                  <td>2016年5月18日 10:52</td>
+                  <td>
+                    <a class="detail-link" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr id="collapse8" class="collapse">
+                  <td colspan="10">
+                  钻井设备关闭，无警告。
+                  </td>
+                </tr>
+              </table>
+              <div class="visible-xs">
+                <ul class="pagination">
+                  <li><a href="#">&laquo;</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">发电机组输出无功有功柱状图</div>
+      <div id="genData" style="height: 500px"></div>
+      
+      <script type="text/javascript">
+            
+            var myChart = echarts.init(document.getElementById("genData"));
+            var app = {};
+            option = null;
+            app.title = '发电机组功率堆叠柱状图';
+
+            option = {
+                
+                tooltip : {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                legend: {
+                    data:['GEN1','GEN2']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis : [
+                    {
+                        type : 'category',
+                        data : ['SET1', 'SET2', 'SET3', 'SET4', 'SET5', 'SET6' ],
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value'
+                    }
+                ],
+                series : [
+                    {
+                        name:'GEN1',
+
+                        type:'bar',
+                        barWidth: '30%',
+                        stack: 'reactive power',
+                        data:[ 52, 200, 334, 390, 330, 220]
+                    },
+                    {
+                        name:'GEN1',
+                        type:'bar',
+                        barWidth: '30%',
+                        stack: 'active power',
+                        data:[220, 182, 191, 234, 290, 330]
+                    },
+                    {
+                        name:'GEN2',
+                        type:'bar',
+                        barWidth: '30%',
+                        stack: 'reactive power',
+                        data:[52, 200, 334, 390, 330, 220]
+                    },
+                    {
+                        name:'GEN2',
+                        type:'bar',
+                        barWidth: '30%',
+                        stack: 'active power',
+                        data:[220, 182, 191, 234, 290, 330]
+                    },
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+      <div>注：海洋平台每两台发电机组成一个系统，柱状图左侧为发电机1，右侧为发电机2.</div>
+    </div>    
+  </body>
+  <footer>
+    <div class="container">
+      ©2016 SHU&nbsp;&nbsp;   <a rel="nofollow" href="" target="_blank">使用前必读</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a rel="nofollow" href="" target="_blank">协议</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a rel="nofollow" href="" target="">与我们合作</a>
+    </div>
+    
+  </footer>  
+  
+
+
+
+</html>

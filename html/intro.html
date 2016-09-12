@@ -6,38 +6,18 @@
     
     <title>bookintroduce</title>
     <link href="../css/intro.css" rel="stylesheet" type="text/css" />
-
+	<script type="text/javascript" src="../js/bookcontent.js"></script>
 	<script type="text/javascript"> 
-		function show()
-		{ 
-		  var box = document.getElementById("box"); 
-
-		  var text = box.innerHTML; 
-		  var newBox = document.createElement("div"); 
-		  var btn = document.createElement("a"); 
-		  newBox.innerHTML = text.substring(0,56); 
-		  btn.innerHTML = text.length > 56 ? "...显示全部" : ""; 
-		  btn.href = "###"; 
-		  btn.onclick = function(){ 
-		    if(btn.innerHTML == "...显示全部")
-		    { 
-		      btn.innerHTML = "收起"; 
-		      newBox.innerHTML = text; 
-		    }
-		    else
-		    { 
-		      btn.innerHTML = "...显示全部"; 
-		      newBox.innerHTML = text.substring(0,56); 
-		    } 
-		  } 
-		  box.innerHTML = ""; 
-		  box.appendChild(newBox); 
-		  box.appendChild(btn); 
-		} 
+		
 		window.onload=function()
 		{
-		  show(); 
+		  show();
+		  showintro()
+		  
 		}
+
+
+
 	</script>
 
 </head>
@@ -94,8 +74,10 @@
 		<div class="con fl">	
 			<div class="review">
 				<div class="bd">
-					<div  class="clearfix">
-						<h2>真正的人民艺术家——凡·高先生<a href="https://www.douban.com/people/amenkaile/">(手肿治虫)</a></h2>	<br>
+					<div  class="clearfix" id="contentbox">
+						
+
+						<!-- <h2>真正的人民艺术家——凡·高先生<a href="https://www.douban.com/people/amenkaile/">(手肿治虫)</a></h2>	<br>
 		      			和很多人一样，我以前一直以为凡·高是一个很会画画的疯子。但是看过这本传记后，我才发现自己大错特错。
 		      			<br><br>我觉得称呼他为“人民艺术家”也不为过，你很少见到这样一个纯粹的人，一个高尚的人，一个脱离了低级趣味的人，一个时刻惦记着劳苦大众的人。<br><br>这不是调侃，而是凡·高悲惨一生的写照。<br><br>《悲伤的老头》<br>
 		      			<div class="cc"><img src="https://img1.doubanio.com/view/thing_review/large/public/p250429.jpg" alt="">
@@ -138,14 +120,16 @@
 		      			<div style="text-align:center;padding-bottom:1em" class="wr pl"></div>
 		      			</div><br><br>然而没过几个月，凡·高被发现在画画时开枪自杀，虽然子弹没有打中心脏，但是在治疗三天后还是离开了人世。<br><br>回过头来，再看凡·高的作品，你会发现他从未放弃一个信念：<br><br>艺术应当关心现实的问题，<br>探索如何唤醒良知，改造世界。<br><br>不过这种激烈的情感也让凡·高将他人拒之门外，自己一直生活在无尽的孤独中。
 		      			<br><br>在最后的作品《有乌鸦的麦田》中，狂暴的天空中乌鸦盘旋，广阔麦田中的小路，似乎预示了凡·高那注定孤独的命运。<br>
-		      			<div class="cc"><img src="https://img3.doubanio.com/view/thing_review/large/public/p250432.jpg" alt=""><div style="text-align:center;padding-bottom:1em" class="wr pl"></div>
+		      			<div class="cc"><img src="https://img3.doubanio.com/view/thing_review/large/public/p250432.jpg" alt=""><div style="text-align:center;padding-bottom:1em" class="wr pl"></div> -->
+
+
 		      			</div>
 		      		</div>
 		      	</div>		
 	    	</div>
 			
 			<!-- 多说评论框 start -->
-			<div class="ds-thread" data-thread-key="intro_1.html" data-title="This_is_Van_Gogh" data-url=""></div>
+			<div class="ds-thread" data-thread-key="intro_1.html" data-title="This_is_Van_Gogh" data-url="https://fiveandnine.github.io/html/intro.html"></div>
 			<!-- 	data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"> -->
 			<!-- 多说评论框 end -->
 			<!-- 多说公共JS代码 start (一个网页只需插入一次) -->

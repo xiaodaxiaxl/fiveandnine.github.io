@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <title>地质勘探网络</title>
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+      
+       <script type="text/javascript" src="../map/china.js"></script>
+      
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="../map/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var geoCoordMap = {
+    "松辽":[125.520898,44.644915],
+    "鄂尔多斯":[109.781327,39.608266],
+    "塔里木":[88.744701,40.091352],
+    "南海":[114.20656,20.142433],
+    "渤海湾":[119.2969,38.753419],
+    "三沙":[113.397079,16.239418],
+    "中沙1":[114.500917,17.550154],
+    "中沙2":[120.500917,20.550154],
+    "中沙3":[117.775636,17.514851],
+    "南沙1":[111.226198,10.768569],
+    "南沙2":[110.527101,7.147047],
+    "南沙3":[112.587598,8.028237],
+    "南沙4":[116.230263,12.29261],
+};
+
+var convertData = function (data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var geoCoord = geoCoordMap[data[i].name];
+        if (geoCoord) {
+            res.push({
+                name: data[i].name,
+                value: geoCoord.concat(data[i].value)
+            });
+        }
+    }
+    return res;
+};
+
+option = {
+    backgroundColor: '#404a59',
+    title: {
+        text: '地质勘探网络（储量分布）',
+        
+        x:'center',
+        textStyle: {
+            color: '#fff'
+        }
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: function (params) {
+            return params.name + ' : ' + params.value[2];
+        }
+    },
+    legend: {
+        orient: 'vertical',
+        y: 'bottom',
+        x:'right',
+        data:['Oil-storage'],
+        textStyle: {
+            color: '#fff'
+        }
+    },
+    visualMap: {
+        min: 0,
+        max: 2000,
+        calculable: true,
+        inRange: {
+            color: ['#50a3ba', '#eac736', '#d94e5d']
+        },
+        textStyle: {
+            color: '#fff'
+        }
+    },
+    geo: {
+        map: 'china',
+        label: {
+            emphasis: {
+                show: false
+            }
+        },
+        itemStyle: {
+            normal: {
+                areaColor: '#323c48',
+                borderColor: '#111'
+            },
+            emphasis: {
+                areaColor: '#2a333d'
+            }
+        }
+    },
+    series: [
+        {
+            name: 'Oil-storage',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: convertData([
+                {name: "松辽", value: 90},
+                {name: "鄂尔多斯", value: 120},
+                {name: "塔里木", value: 192},
+                {name: "南海", value: 1200},
+                {name: "渤海湾", value: 12},
+                {name: "三沙", value: 12},
+                {name: "中沙1", value: 12},
+                {name: "中沙2", value: 412},
+                {name: "中沙3", value: 412},
+                {name: "南沙1", value: 712},
+                {name: "南沙2", value: 912},
+                {name: "南沙3", value: 1012},
+                           ]),
+            symbolSize: 12,
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                emphasis: {
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }
+            }
+        }
+    ]
+};
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
