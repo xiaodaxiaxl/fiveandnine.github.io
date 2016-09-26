@@ -11,7 +11,20 @@ function autoScroll(obj){
 			});
 }
 
+// function tobottom()
+// 		{
+// 			// $('html,body').animate({scrollTop:$('#collapse1').offset().top}, 800);
+// 			// alert($('#collapse1').offset().top);	
+// 			$('html,body').animate({scrollTop:0, 800);
+
+// 		}
+	
 // 主程序
 $(function(){
-	setInterval('autoScroll(".express")',3000)
+	setInterval('autoScroll(".express")',3000);
+	// $('.detail-link').click(tobottom());
+	//$('.detail-link').click(function(){$('html,body').animate({scrollTop:$('.copyright').offset().top}, 800);});
+	$('.detail-link').click(function(){$('html,body').animate({scrollTop: '2500px'}, 800);});
 })
+
+
